@@ -1,0 +1,155 @@
+docker pull busybox        
+
+Using default tag: latest
+latest: Pulling from library/busybox
+45a0cdc5c8d3: Pull complete
+Digest: sha256:3b3128d9df6bbbcc92e2358e596c9fbd722a437a62bafbc51607970e9e3b8869
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+
+docker run -it --name pinger busybox  ping netology.ru
+
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=37 time=11.564 ms
+64 bytes from 188.114.98.224: seq=1 ttl=37 time=13.725 ms
+64 bytes from 188.114.98.224: seq=2 ttl=37 time=14.177 ms
+64 bytes from 188.114.98.224: seq=3 ttl=37 time=14.648 ms
+64 bytes from 188.114.98.224: seq=4 ttl=37 time=12.910 ms
+64 bytes from 188.114.98.224: seq=5 ttl=37 time=10.598 ms
+64 bytes from 188.114.98.224: seq=6 ttl=37 time=12.674 ms
+
+
+docker ps -a
+
+CONTAINER ID   IMAGE               COMMAND                  CREATED              STATUS                      PORTS     NAMES
+1e41c7c928ed   busybox             "ping netology.ru"       About a minute ago   Exited (0) 59 seconds ago             pinger
+aa7aa6a0fd3b   node                "docker-entrypoint.s…"   3 hours ago          Exited (0) 4 minutes ago              node
+240fd5613856   docker101tutorial   "/docker-entrypoint.…"   20 hours ago         Exited (0) 20 hours ago               docker-tutorial
+247dcb6bd33b   alpine/git          "git clone https://g…"   20 hours ago         Exited (128) 20 hours ago             repo
+
+
+docker logs pinger
+
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=37 time=11.564 ms
+64 bytes from 188.114.98.224: seq=1 ttl=37 time=13.725 ms
+64 bytes from 188.114.98.224: seq=2 ttl=37 time=14.177 ms
+64 bytes from 188.114.98.224: seq=3 ttl=37 time=14.648 ms
+64 bytes from 188.114.98.224: seq=4 ttl=37 time=12.910 ms
+64 bytes from 188.114.98.224: seq=5 ttl=37 time=10.598 ms
+64 bytes from 188.114.98.224: seq=6 ttl=37 time=12.674 ms
+
+
+docker start pinger
+
+pinger
+
+
+docker ps -a
+
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS                      PORTS     NAMES
+1e41c7c928ed   busybox             "ping netology.ru"       5 minutes ago   Up 21 seconds                         pinger
+aa7aa6a0fd3b   node                "docker-entrypoint.s…"   3 hours ago     Exited (0) 8 minutes ago              node
+240fd5613856   docker101tutorial   "/docker-entrypoint.…"   20 hours ago    Exited (0) 20 hours ago               docker-tutorial
+247dcb6bd33b   alpine/git          "git clone https://g…"   20 hours ago    Exited (128) 20 hours ago             repo
+
+
+docker logs pinger 
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=37 time=11.564 ms
+64 bytes from 188.114.98.224: seq=1 ttl=37 time=13.725 ms
+64 bytes from 188.114.98.224: seq=2 ttl=37 time=14.177 ms
+64 bytes from 188.114.98.224: seq=3 ttl=37 time=14.648 ms
+64 bytes from 188.114.98.224: seq=4 ttl=37 time=12.910 ms
+64 bytes from 188.114.98.224: seq=5 ttl=37 time=10.598 ms
+64 bytes from 188.114.98.224: seq=6 ttl=37 time=12.674 ms
+^C
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 10.598/12.899/14.648 ms
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=37 time=7.333 ms
+64 bytes from 188.114.98.224: seq=1 ttl=37 time=11.042 ms
+64 bytes from 188.114.98.224: seq=2 ttl=37 time=10.678 ms
+64 bytes from 188.114.98.224: seq=3 ttl=37 time=10.536 ms
+64 bytes from 188.114.98.224: seq=4 ttl=37 time=15.210 ms
+64 bytes from 188.114.98.224: seq=5 ttl=37 time=10.839 ms
+64 bytes from 188.114.98.224: seq=6 ttl=37 time=13.728 ms
+64 bytes from 188.114.98.224: seq=7 ttl=37 time=11.740 ms
+64 bytes from 188.114.98.224: seq=8 ttl=37 time=14.223 ms
+64 bytes from 188.114.98.224: seq=9 ttl=37 time=16.838 ms
+64 bytes from 188.114.98.224: seq=10 ttl=37 time=14.140 ms
+64 bytes from 188.114.98.224: seq=11 ttl=37 time=12.987 ms
+64 bytes from 188.114.98.224: seq=12 ttl=37 time=11.970 ms
+64 bytes from 188.114.98.224: seq=13 ttl=37 time=13.561 ms
+64 bytes from 188.114.98.224: seq=14 ttl=37 time=15.127 ms
+64 bytes from 188.114.98.224: seq=15 ttl=37 time=12.270 ms
+64 bytes from 188.114.98.224: seq=16 ttl=37 time=20.509 ms
+64 bytes from 188.114.98.224: seq=17 ttl=37 time=28.613 ms
+64 bytes from 188.114.98.224: seq=18 ttl=37 time=14.243 ms
+64 bytes from 188.114.98.224: seq=19 ttl=37 time=12.721 ms
+64 bytes from 188.114.98.224: seq=20 ttl=37 time=16.574 ms
+64 bytes from 188.114.98.224: seq=21 ttl=37 time=23.908 ms
+64 bytes from 188.114.98.224: seq=22 ttl=37 time=11.125 ms
+64 bytes from 188.114.98.224: seq=23 ttl=37 time=12.065 ms
+64 bytes from 188.114.98.224: seq=24 ttl=37 time=13.648 ms
+64 bytes from 188.114.98.224: seq=25 ttl=37 time=15.732 ms
+64 bytes from 188.114.98.224: seq=26 ttl=37 time=11.601 ms
+64 bytes from 188.114.98.224: seq=27 ttl=37 time=11.736 ms
+64 bytes from 188.114.98.224: seq=28 ttl=37 time=10.846 ms
+64 bytes from 188.114.98.224: seq=29 ttl=37 time=12.714 ms
+64 bytes from 188.114.98.224: seq=30 ttl=37 time=11.865 ms
+64 bytes from 188.114.98.224: seq=31 ttl=37 time=12.191 ms
+64 bytes from 188.114.98.224: seq=32 ttl=37 time=12.078 ms
+64 bytes from 188.114.98.224: seq=33 ttl=37 time=17.719 ms
+64 bytes from 188.114.98.224: seq=34 ttl=37 time=11.816 ms
+64 bytes from 188.114.98.224: seq=35 ttl=37 time=11.686 ms
+64 bytes from 188.114.98.224: seq=36 ttl=37 time=31.791 ms
+64 bytes from 188.114.98.224: seq=37 ttl=37 time=11.879 ms
+64 bytes from 188.114.98.224: seq=38 ttl=37 time=12.028 ms
+64 bytes from 188.114.98.224: seq=39 ttl=37 time=11.572 ms
+64 bytes from 188.114.98.224: seq=40 ttl=37 time=11.398 ms
+64 bytes from 188.114.98.224: seq=41 ttl=37 time=13.479 ms
+64 bytes from 188.114.98.224: seq=42 ttl=37 time=11.921 ms
+64 bytes from 188.114.98.224: seq=43 ttl=37 time=22.978 ms
+64 bytes from 188.114.98.224: seq=44 ttl=37 time=9.447 ms
+64 bytes from 188.114.98.224: seq=45 ttl=37 time=11.749 ms
+64 bytes from 188.114.98.224: seq=46 ttl=37 time=9.304 ms
+64 bytes from 188.114.98.224: seq=47 ttl=37 time=16.451 ms
+64 bytes from 188.114.98.224: seq=48 ttl=37 time=12.334 ms
+64 bytes from 188.114.98.224: seq=49 ttl=37 time=12.141 ms
+64 bytes from 188.114.98.224: seq=50 ttl=37 time=11.322 ms
+64 bytes from 188.114.98.224: seq=51 ttl=37 time=11.266 ms
+64 bytes from 188.114.98.224: seq=52 ttl=37 time=12.078 ms
+64 bytes from 188.114.98.224: seq=53 ttl=37 time=14.361 ms
+64 bytes from 188.114.98.224: seq=54 ttl=37 time=9.315 ms
+64 bytes from 188.114.98.224: seq=55 ttl=37 time=10.902 ms
+64 bytes from 188.114.98.224: seq=56 ttl=37 time=20.366 ms
+64 bytes from 188.114.98.224: seq=57 ttl=37 time=16.807 ms
+64 bytes from 188.114.98.224: seq=58 ttl=37 time=17.539 ms
+64 bytes from 188.114.98.224: seq=59 ttl=37 time=13.883 ms
+64 bytes from 188.114.98.224: seq=60 ttl=37 time=8.198 ms
+64 bytes from 188.114.98.224: seq=61 ttl=37 time=11.687 ms
+64 bytes from 188.114.98.224: seq=62 ttl=37 time=12.856 ms
+PING netology.ru (188.114.98.224): 56 data bytes
+64 bytes from 188.114.98.224: seq=0 ttl=37 time=25.457 ms
+64 bytes from 188.114.98.224: seq=1 ttl=37 time=12.737 ms
+64 bytes from 188.114.98.224: seq=2 ttl=37 time=11.854 ms
+64 bytes from 188.114.98.224: seq=3 ttl=37 time=9.098 ms
+64 bytes from 188.114.98.224: seq=4 ttl=37 time=14.148 ms
+
+
+docker rm pinger  
+
+pinger
+
+
+docker rmi busybox
+
+Untagged: busybox:latest
+Untagged: busybox@sha256:3b3128d9df6bbbcc92e2358e596c9fbd722a437a62bafbc51607970e9e3b8869
+Deleted: sha256:334e4a014c81bd4050daa78c7dfd2ae87855e9052721c164ea9d9d9a416ebdd3
+Deleted: sha256:98004ed6104b2f4cc21559ea6e4a742ebf6731e37b5d1b04013ca68862749ba3
+
+
